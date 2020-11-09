@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: siimple-fanout-example  
+  annotations:  
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+     paths:
+       - path: /pod2
+         backend:
+          serviceName: pod2
+          servicePort: 80
+
